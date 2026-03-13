@@ -16,11 +16,13 @@
 	<body>
 		<form id="scoutingForm" onsubmit="return false" name="scoutingForm">
 			<div id="main-panel-holder">
-				<div id="prematch" class="main-panel" style="background-color: black;">
+				<div id="prematch" class="main-panel" style="background-color: rgb(90, 85, 85);">
 					<h1 id="prematchHeader1" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">N</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting PASS</h1>
 					<h2 id="prematchHeader2">pre-match</h2>
-					<p class="match-label"><input type="button" value="Next" id="nextButton1" onclick="swipePage(1)"></p>
-					<table id="prematch_table" style="font: Roboto">
+				<p class="match-label"><input type="button" value="Next" id="nextButton1" onclick="swipePage(1)"></p>
+				<p class="match-label" id="span_teams">teams:</p>
+				<p class="match-label" id="span_schedule">schedule:</p>
+				<table id="prematch_table" style="font: Roboto">
 					<!-- ###PRE-MATCH-COMPONENTS###-->
 					</table>
 					<p class="match-label"><input type="button" value="Next" id="nextButton2" onclick="swipePage(1)"></p>
