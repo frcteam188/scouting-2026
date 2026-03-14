@@ -601,8 +601,19 @@ function addRadio(table, idx, name, data) {
     checked = data.defaultValue;
   }
   if (data.hasOwnProperty('choices')) {
+    var radioGroup = document.createElement("div");
+    radioGroup.classList.add("radio-group");
+    if (data.type == 'robot') {
+      radioGroup.classList.add("radio-group-robot");
+    }
     keys = Object.keys(data.choices);
+    if (keys.length > 6) {
+      radioGroup.classList.add("radio-group-wrap");
+    }
     keys.forEach(c => {
+      var label = document.createElement("label");
+      label.classList.add("radio-choice");
+      label.setAttribute("for", "input_" + data.code + "_" + c);
       var inp = document.createElement("input");
       inp.setAttribute("id", "input_" + data.code + "_" + c);
       inp.setAttribute("type", "radio");
@@ -615,9 +626,16 @@ function addRadio(table, idx, name, data) {
       if (checked == c) {
         inp.setAttribute("checked", "");
       }
-      cell2.appendChild(inp);
-      cell2.innerHTML += data.choices[c];
+      if (data.type == 'robot') {
+        label.setAttribute("data-alliance", c.startsWith('r') ? 'red' : 'blue');
+      }
+      label.appendChild(inp);
+      var span = document.createElement("span");
+      span.innerHTML = data.choices[c].replace(/<br\s*\/?>/gi, '');
+      label.appendChild(span);
+      radioGroup.appendChild(label);
     });
+    cell2.appendChild(radioGroup);
   }
   var inp = document.createElement("input");
   inp.setAttribute("id", "display_" + data.code);
@@ -652,6 +670,8 @@ function addCheckbox(table, idx, name, data) {
     cell1.setAttribute("title", data.tooltip);
   }
   cell2.classList.add("field");
+  var label = document.createElement("label");
+  label.classList.add("toggle-switch");
   var inp = document.createElement("input");
   inp.setAttribute("id", "input_" + data.code);
   inp.setAttribute("type", "checkbox");
@@ -660,11 +680,15 @@ function addCheckbox(table, idx, name, data) {
   } else {
     inp.setAttribute("name", data.code);
   }
-  cell2.appendChild(inp);
-
-  if (data.type == 'bool') {
-    cell2.innerHTML += "(checked = Yes)";
-  }
+  label.appendChild(inp);
+  var track = document.createElement("span");
+  track.classList.add("toggle-track");
+  label.appendChild(track);
+  var toggleLabel = document.createElement("span");
+  toggleLabel.classList.add("toggle-label");
+  toggleLabel.textContent = (data.type == 'bool') ? "Yes" : "On";
+  label.appendChild(toggleLabel);
+  cell2.appendChild(label);
 
   if (data.hasOwnProperty('defaultValue')) {
     var def = document.createElement("input");

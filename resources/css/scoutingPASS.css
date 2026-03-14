@@ -6,54 +6,89 @@
     src: url("../fonts/alexisv3.ttf") format('truetype');
 }
 
-html, body{
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
     color: white;
     background-color: black;
+    overflow-x: hidden;
 }
 
-#prematch_table, #postmatch_table {
-
-    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
-    text-align: center;
+/* ── Main panels ── */
+.main-panel {
+    display: none;
+    min-height: 100vh;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
     color: white;
-    font-size: 13px;
-    font-style: bold;
-    letter-spacing: 1px;
-    border-width: 4px;
-    border-color: white;
+    background-color: black;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    text-align: justify;
+    padding-bottom: 40px;
 }
 
-#auton_table, #endgame_table, #teleop_table {
-    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+#prematch {
+    display: table;
+}
+
+#qr-code {
+    text-align: center;
     color: black;
-    font-size: 13px;
-    font-style: bold;
-    letter-spacing: 1px;
-    border-width: 4px;
-    border-color: black;
 }
 
-.button {
+/* ── Headers ── */
+h1 {
     font-family: Alexis;
-    font-size: 16px;
+    text-align: center;
+    border-style: groove;
+    border-color: white;
+    border-width: 2px;
+    font-size: 32px;
+    padding: 8px;
+    font-weight: 350;
+    margin: 8px 0;
 }
 
-#autonHeader, #endgameHeader, #teleopHeader1, #teleopHeader2{
+h1 .odd {
+    font-family: Alexis;
+    color: #0AB4EC;
+}
+
+h1 .even {
+    font-family: Alexis;
+    color: #42B333;
+}
+
+h2 {
+    font-family: Alexis;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: italic;
+    margin: 4px 0 8px;
+}
+
+#autonHeader, #endgameHeader, #teleopHeader1, #teleopHeader2 {
     color: black;
     border-color: black;
     border-width: 4px;
 }
 
-#postmatchHeader{
+#postmatchHeader {
     border-width: 4px;
     border-color: white;
 }
 
-#prematchHeader1, #prematchHeader2{
+#prematchHeader1, #prematchHeader2 {
     color: white;
     border-color: white;
     border-width: 4px;
@@ -63,99 +98,284 @@ html, body{
     color: black;
 }
 
-.field-image {
-    margin: 2vw;
-}
-
-.field-image-src{
-    background-position: center;
-    border: 1px solid;
-}
-
-.main-panel{
-    display: none;
-    height: 100%;
-    min-height: 100%;
-    width: 100vw;
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: white;
-    background-color: black;
-    font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
-    text-align: justify;
-}
-
-#prematch{
-    display: table;
-}
-
-#auton{
-}
-
-#teleop{
-}
-
-#endgame{
-}
-
-#postmatch{
-}
-
-#qr-code{
-  text-align: center;
-  color: black;
-}
-
-h1{
-    font-family: Alexis;
-    text-align: center;
-    border-style: groove;
-    border-color: white;
-    border-width: 2px;
-    font-size: 40px;
-    padding: 10px;
-    font-weight: 350;
-}
-
 #page2, #page4 {
     color: black;
 }
 
-h2{
-    font-family: Alexis;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 300;
-    font-style: italic;
+/* ── Full-width stacked table layout ── */
+table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    padding: 0 8px;
 }
 
-.match-label{
-    text-align: center;
-}
-
-.half-button-l{
-    width: 48%;
-    margin: 1vw;
-    height: 100%;
-    font: roboto;
-}
-
-.half-button-r{
-    flex-grow: 1;
-    height: 100%;
-    width: 48%;
-    margin: 1vw;
-    font: roboto;
-}
-
-.half-button-container{
+table tr {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+td {
+    display: block;
+    width: 100% !important;
+    padding: 2px 4px;
+}
+
+td.title {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    padding-bottom: 4px;
+    opacity: 0.9;
+}
+
+td.field {
+    text-align: left;
+    width: 100% !important;
+}
+
+/* Section-specific table colors */
+#prematch_table, #postmatch_table {
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+#auton_table, #endgame_table, #teleop_table {
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    color: black;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+#auton_table tr,
+#endgame_table tr,
+#teleop_table tr {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+#prematch_table {
+    font: Alexis;
+    text-align: center;
+}
+
+/* ── Base input ── */
+input {
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: black;
+    background-color: white;
+    touch-action: manipulation;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+/* ── Radio: Segmented slider control ── */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+}
+
+#auton_table .radio-group,
+#endgame_table .radio-group,
+#teleop_table .radio-group {
+    border-color: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.06);
+}
+
+.radio-choice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 48px;
+    padding: 8px 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: inherit;
+    text-align: center;
+    user-select: none;
+    touch-action: manipulation;
+    transition: background-color 0.15s, color 0.15s;
+    border-right: 1px solid rgba(128,128,128,0.2);
+    position: relative;
+}
+
+.radio-choice:last-child {
+    border-right: none;
+}
+
+.radio-choice input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-choice span {
+    pointer-events: none;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.radio-choice:has(input:checked) {
+    background-color: #2196F3;
+    color: white;
+    font-weight: 700;
+}
+
+.radio-choice:active {
+    background-color: rgba(33, 150, 243, 0.3);
+}
+
+.radio-choice:has(input:checked):active {
+    background-color: #1976D2;
+}
+
+/* Robot selector: 3-column grid (Red row, Blue row) */
+.radio-group-robot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: none;
+    background: none;
+    gap: 6px;
+}
+
+.radio-group-robot .radio-choice {
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+}
+
+.radio-choice[data-alliance="red"]:has(input:checked) {
+    background-color: #D32F2F;
+    border-color: #B71C1C;
+    color: white;
+}
+
+.radio-choice[data-alliance="blue"]:has(input:checked) {
+    background-color: #1565C0;
+    border-color: #0D47A1;
+    color: white;
+}
+
+/* When there are many choices, allow wrapping into rows */
+.radio-group.radio-group-wrap .radio-choice {
+    flex: 0 1 auto;
+    min-width: 60px;
+    padding: 8px 12px;
+    border-right: none;
+    border: 1px solid rgba(128,128,128,0.2);
+    border-radius: 8px;
+    margin: 3px;
+}
+
+.radio-group.radio-group-wrap {
+    gap: 0;
+    border: none;
+    background: none;
+}
+
+/* ── Checkbox: iOS-style toggle switch ── */
+.toggle-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    padding: 4px 0;
+}
+
+.toggle-switch input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-track {
+    position: relative;
+    width: 56px;
+    height: 32px;
+    background-color: #ccc;
+    border-radius: 16px;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.toggle-track::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.toggle-switch input:checked + .toggle-track {
+    background-color: #2196F3;
+}
+
+.toggle-switch input:checked + .toggle-track::after {
+    transform: translateX(24px);
+}
+
+.toggle-label {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.toggle-switch input:checked ~ .toggle-label {
+    opacity: 1;
+}
+
+/* ── Navigation buttons ── */
+.match-label {
+    text-align: center;
+    padding: 4px 0;
+}
+
+input[type="button"],
+button {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 #nextButton1, #nextButton2, #nextButton9, #nextButton10, .clearForm, .submitForm, #displayButton, #copyButton {
     font-family: Alexis;
-    padding: 10px;
+    padding: 12px 24px;
     background-color: rgb(151, 199, 240);
     text-decoration: none;
     display: inline-block;
@@ -164,7 +384,7 @@ h2{
 #nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7, #nextButton8 {
     font-family: Alexis;
     background-color: black;
-    padding: 10px;
+    padding: 12px 24px;
     color: white;
 }
 
@@ -176,71 +396,77 @@ h2{
     margin-left: 20px;
 }
 
-#prevButton7, #prevButton8, #prevButton9{
+#prevButton7, #prevButton8, #prevButton9 {
     font-family: Alexis;
     background-color: rgb(151, 199, 240);
-    padding: 10px;
+    padding: 12px 24px;
 }
 
-#prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6{
+#prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6 {
     font-family: Alexis;
     background-color: black;
-    padding: 10px;
+    padding: 12px 24px;
     color: white;
-
 }
 
-#prematch_table{
-    font: Alexis;
-    text-align: center;
-}
-
-
-h1 .odd {
+.button {
     font-family: Alexis;
-    text-align: center;
-    color: #0AB4EC;
-}
-
-h1 .even {
-    font-family: Alexis;
-    text-align: center;
-    color: #42B333;
-}
-
-table {
-    border: 1px solid black;
-    width: 100%;
-}
-
-td {
-    padding: 10px 4px;
-}
-
-input {
     font-size: 16px;
-    font: roboto;
-    color: black;
-    background-color: white;
 }
 
-.title {
-    width: "50%";
-    text-align: right;
+/* ── Counter ── */
+.counter {
+    min-height: 48px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
 }
 
-.field {
-    width: "50%";
-    text-align: left;
+/* ── Half buttons (counter inc/dec) ── */
+.half-button-l {
+    width: 48%;
+    margin: 1vw;
+    height: 100%;
 }
 
+.half-button-r {
+    flex-grow: 1;
+    height: 100%;
+    width: 48%;
+    margin: 1vw;
+}
+
+.half-button-container {
+    display: flex;
+}
+
+/* ── Field image ── */
+.field-image {
+    margin: 2vw;
+}
+
+.field-image-src {
+    background-position: center;
+    border: 1px solid;
+}
+
+/* ── QR code section ── */
 #qr-table {
     text-align: center;
     color: black;
     background-color: white;
 }
 
+#qr-table tr {
+    flex-direction: row;
+    border-bottom: none;
+}
+
+#qr-table td {
+    display: table-cell;
+}
+
 #data {
-    font-family:'Lucida Console', 'monospace';
+    font-family: 'Lucida Console', 'monospace';
     text-align: justify;
 }

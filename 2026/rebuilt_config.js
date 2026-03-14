@@ -22,8 +22,8 @@ var config_data = `
       "code": "l",
       "type": "level",
       "choices": {
-        "qm": "Quals<br>",
-        "sf": "Semifinals<br>",
+        "qm": "Quals",
+        "sf": "Semifinals",
         "f": "Finals"
       },
       "defaultValue": "qm",
@@ -41,10 +41,10 @@ var config_data = `
       "type": "robot",
       "choices": {
         "r1": "Red-1",
-        "b1": "Blue-1<br>",
         "r2": "Red-2",
-        "b2": "Blue-2<br>",
         "r3": "Red-3",
+        "b1": "Blue-1",
+        "b2": "Blue-2",
         "b3": "Blue-3"
       },
       "required": "true"
@@ -70,10 +70,10 @@ var config_data = `
       "code": "aa",
       "type": "radio",
       "choices": {
-        "n": "None<br>",
-        "m": "Mobility only<br>",
-        "s": "Score attempt only<br>",
-        "c": "Combo auto<br>",
+        "n": "None",
+        "m": "Mobility only",
+        "s": "Score attempt only",
+        "c": "Combo auto",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -82,9 +82,9 @@ var config_data = `
       "code": "ar",
       "type": "radio",
       "choices": {
-        "f": "Failed<br>",
-        "p": "Partial<br>",
-        "s": "Successful<br>",
+        "f": "Failed",
+        "p": "Partial",
+        "s": "Successful",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -93,16 +93,16 @@ var config_data = `
       "code": "abs",
       "type": "radio",
       "choices": {
-        "0": "0<br>",
-        "20": "20<br>",
-        "40": "40<br>",
-        "60": "60<br>",
-        "80": "80<br>",
-        "100": "100<br>",
-        "150": "150<br>",
-        "200": "200<br>",
-        "fh": "Full Hopper<br>",
-        "fh+": "Full Hopper ++<br>",
+        "0": "0",
+        "20": "20",
+        "40": "40",
+        "60": "60",
+        "80": "80",
+        "100": "100",
+        "150": "150",
+        "200": "200",
+        "fh": "Full Hopper",
+        "fh+": "Full Hopper ++",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -111,10 +111,10 @@ var config_data = `
       "code": "abm",
       "type": "radio",
       "choices": {
-        "20": "~20% missed<br>",
-        "50": "~50% missed<br>",
-        "80": "~80% missed<br>",
-        "ms": "Mostly Scored<br>",
+        "20": "~20% missed",
+        "50": "~50% missed",
+        "80": "~80% missed",
+        "ms": "Mostly Scored",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -123,11 +123,11 @@ var config_data = `
       "code": "aac",
       "type": "radio",
       "choices": {
-        "n": "No shots<br>",
-        "p": "Poor<br>",
-        "f": "Fair<br>",
-        "g": "Good<br>",
-        "e": "Excellent<br>",
+        "n": "No shots",
+        "p": "Poor",
+        "f": "Fair",
+        "g": "Good",
+        "e": "Excellent",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -136,9 +136,9 @@ var config_data = `
       "code": "apc",
       "type": "radio",
       "choices": {
-        "n": "None<br>",
-        "m": "Minor risk<br>",
-        "h": "High risk<br>",
+        "n": "None",
+        "m": "Minor risk",
+        "h": "High risk",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -149,11 +149,11 @@ var config_data = `
       "code": "pr",
       "type": "radio",
       "choices": {
-        "p": "Primary scorer<br>",
-        "s": "Secondary scorer<br>",
-        "d": "Defender<br>",
-        "e": "Endgame bot<br>",
-        "u": "Support / utility<br>",
+        "p": "Primary scorer",
+        "s": "Secondary scorer",
+        "d": "Defender",
+        "e": "Endgame bot",
+        "u": "Support / utility",
         "x": "No clear role"
       },
       "defaultValue": "x"
@@ -162,10 +162,10 @@ var config_data = `
       "code": "sth",
       "type": "radio",
       "choices": {
-        "0": "None<br>",
-        "1": "Opportunistic<br>",
-        "2": "Secondary<br>",
-        "3": "Primary<br>",
+        "0": "None",
+        "1": "Opportunistic",
+        "2": "Secondary",
+        "3": "Primary",
         "4": "Elite"
       },
       "defaultValue": "1"
@@ -174,20 +174,20 @@ var config_data = `
       "code": "tbs",
       "type": "radio",
       "choices": {
-        "0": "0<br>",
-        "20": "20<br>",
-        "40": "40<br>",
-        "60": "60<br>",
-        "80": "80<br>",
-        "100": "100<br>",
-        "150": "150<br>",
-        "200": "200<br>",
-        "fh": "Full Hopper<br>",
-        "fh2": "Full Hopper x2<br>",
-        "fh3": "Full Hopper x3<br>",
-        "fh4": "Full Hopper x4<br>",
-        "fh5": "Full Hopper x5<br>",
-        "fh6+": "Full Hopper x6++<br>",
+        "0": "0",
+        "20": "20",
+        "40": "40",
+        "60": "60",
+        "80": "80",
+        "100": "100",
+        "150": "150",
+        "200": "200",
+        "fh": "Full Hopper",
+        "fh2": "Full Hopper x2",
+        "fh3": "Full Hopper x3",
+        "fh4": "Full Hopper x4",
+        "fh5": "Full Hopper x5",
+        "fh6+": "Full Hopper x6++",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -196,10 +196,10 @@ var config_data = `
       "code": "tbm",
       "type": "radio",
       "choices": {
-        "20": "~20% missed<br>",
-        "50": "~50% missed<br>",
-        "80": "~80% missed<br>",
-        "ms": "Mostly Scored<br>",
+        "20": "~20% missed",
+        "50": "~50% missed",
+        "80": "~80% missed",
+        "ms": "Mostly Scored",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -208,11 +208,11 @@ var config_data = `
       "code": "bac",
       "type": "radio",
       "choices": {
-        "n": "No shots<br>",
-        "p": "Poor<br>",
-        "f": "Fair<br>",
-        "g": "Good<br>",
-        "e": "Excellent<br>",
+        "n": "No shots",
+        "p": "Poor",
+        "f": "Fair",
+        "g": "Good",
+        "e": "Excellent",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -221,9 +221,9 @@ var config_data = `
       "code": "sty",
       "type": "radio",
       "choices": {
-        "c": "Close-range<br>",
-        "f": "Fixed-position<br>",
-        "m": "Moving<br>",
+        "c": "Close-range",
+        "f": "Fixed-position",
+        "m": "Moving",
         "x": "Mixed / unclear"
       },
       "defaultValue": "x"
@@ -232,9 +232,9 @@ var config_data = `
       "code": "src",
       "type": "radio",
       "choices": {
-        "f": "Floor<br>",
-        "h": "Human player<br>",
-        "m": "Mixed<br>",
+        "f": "Floor",
+        "h": "Human player",
+        "m": "Mixed",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -243,10 +243,10 @@ var config_data = `
       "code": "lan",
       "type": "radio",
       "choices": {
-        "l": "Left<br>",
-        "c": "Center<br>",
-        "r": "Right<br>",
-        "f": "Flexible<br>",
+        "l": "Left",
+        "c": "Center",
+        "r": "Right",
+        "f": "Flexible",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -257,10 +257,10 @@ var config_data = `
       "code": "tc",
       "type": "radio",
       "choices": {
-        "1": "Level 1<br>",
-        "2": "Level 2<br>",
-        "3": "Level 3<br>",
-        "a": "Attempted<br>",
+        "1": "Level 1",
+        "2": "Level 2",
+        "3": "Level 3",
+        "a": "Attempted",
         "x": "Not Attempted"
       },
       "defaultValue": "x"
@@ -269,9 +269,9 @@ var config_data = `
       "code": "est",
       "type": "radio",
       "choices": {
-        "1": "< 15 sec<br>",
-        "2": "15-25 sec<br>",
-        "3": "> 25 sec<br>",
+        "1": "< 15 sec",
+        "2": "15-25 sec",
+        "3": "> 25 sec",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -280,9 +280,9 @@ var config_data = `
       "code": "ecs",
       "type": "radio",
       "choices": {
-        "y": "Yes<br>",
-        "n": "No<br>",
-        "s": "Sometimes<br>",
+        "y": "Yes",
+        "n": "No",
+        "s": "Sometimes",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -293,9 +293,9 @@ var config_data = `
       "code": "ds",
       "type": "radio",
       "choices": {
-        "n": "Not Effective<br>",
-        "a": "Average<br>",
-        "v": "Very Effective<br>",
+        "n": "Not Effective",
+        "a": "Average",
+        "v": "Very Effective",
         "x": "Not Observed"
       },
       "defaultValue": "x"
@@ -304,10 +304,10 @@ var config_data = `
       "code": "dr",
       "type": "radio",
       "choices": {
-        "b": "Below Average<br>",
-        "a": "Average<br>",
-        "g": "Good<br>",
-        "e": "Excellent<br>",
+        "b": "Below Average",
+        "a": "Average",
+        "g": "Good",
+        "e": "Excellent",
         "x": "Did not play defense"
       },
       "defaultValue": "x"
@@ -316,9 +316,9 @@ var config_data = `
       "code": "ud",
       "type": "radio",
       "choices": {
-        "s": "Shut down<br>",
-        "l": "Slowed<br>",
-        "f": "Mostly fine<br>",
+        "s": "Shut down",
+        "l": "Slowed",
+        "f": "Mostly fine",
         "x": "Not observed"
       },
       "defaultValue": "x"
@@ -327,10 +327,10 @@ var config_data = `
       "code": "sr",
       "type": "radio",
       "choices": {
-        "1": "1 (slow)<br>",
-        "2": "2<br>",
-        "3": "3<br>",
-        "4": "4<br>",
+        "1": "1 (slow)",
+        "2": "2",
+        "3": "3",
+        "4": "4",
         "5": "5 (fast)"
       },
       "defaultValue": "3"
@@ -347,10 +347,10 @@ var config_data = `
       "code": "drv",
       "type": "radio",
       "choices": {
-        "s": "Rock solid<br>",
-        "m": "Minor issues<br>",
-        "i": "Inconsistent<br>",
-        "d": "Dead / major issue<br>",
+        "s": "Rock solid",
+        "m": "Minor issues",
+        "i": "Inconsistent",
+        "d": "Dead / major issue",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -359,10 +359,10 @@ var config_data = `
       "code": "mec",
       "type": "radio",
       "choices": {
-        "s": "Rock solid<br>",
-        "m": "Minor jams<br>",
-        "f": "Frequent jams<br>",
-        "b": "Broken / nonfunctional<br>",
+        "s": "Rock solid",
+        "m": "Minor jams",
+        "f": "Frequent jams",
+        "b": "Broken / nonfunctional",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -379,10 +379,10 @@ var config_data = `
       "code": "pen",
       "type": "radio",
       "choices": {
-        "l": "Low<br>",
-        "m": "Medium<br>",
-        "h": "High<br>",
-        "c": "Card risk<br>",
+        "l": "Low",
+        "m": "Medium",
+        "h": "High",
+        "c": "Card risk",
         "x": "Not observed"
       },
       "defaultValue": "x"
