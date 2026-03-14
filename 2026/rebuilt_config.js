@@ -94,9 +94,15 @@ var config_data = `
       "type": "radio",
       "choices": {
         "0": "0<br>",
-        "1": "1-2<br>",
-        "2": "3-5<br>",
-        "3": "6+<br>",
+        "20": "20<br>",
+        "40": "40<br>",
+        "60": "60<br>",
+        "80": "80<br>",
+        "100": "100<br>",
+        "150": "150<br>",
+        "200": "200<br>",
+        "fh": "Full Hopper<br>",
+        "fh+": "Full Hopper ++<br>",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -105,10 +111,10 @@ var config_data = `
       "code": "abm",
       "type": "radio",
       "choices": {
-        "0": "0<br>",
-        "1": "1-2<br>",
-        "2": "3-5<br>",
-        "3": "6+<br>",
+        "20": "~20% missed<br>",
+        "50": "~50% missed<br>",
+        "80": "~80% missed<br>",
+        "ms": "Mostly Scored<br>",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -169,10 +175,19 @@ var config_data = `
       "type": "radio",
       "choices": {
         "0": "0<br>",
-        "1": "1-3<br>",
-        "2": "4-7<br>",
-        "3": "8-12<br>",
-        "4": "13+<br>",
+        "20": "20<br>",
+        "40": "40<br>",
+        "60": "60<br>",
+        "80": "80<br>",
+        "100": "100<br>",
+        "150": "150<br>",
+        "200": "200<br>",
+        "fh": "Full Hopper<br>",
+        "fh2": "Full Hopper x2<br>",
+        "fh3": "Full Hopper x3<br>",
+        "fh4": "Full Hopper x4<br>",
+        "fh5": "Full Hopper x5<br>",
+        "fh6+": "Full Hopper x6++<br>",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -181,10 +196,10 @@ var config_data = `
       "code": "tbm",
       "type": "radio",
       "choices": {
-        "0": "0<br>",
-        "1": "1-2<br>",
-        "2": "3-5<br>",
-        "3": "6+<br>",
+        "20": "~20% missed<br>",
+        "50": "~50% missed<br>",
+        "80": "~80% missed<br>",
+        "ms": "Mostly Scored<br>",
         "x": "Unknown"
       },
       "defaultValue": "x"
