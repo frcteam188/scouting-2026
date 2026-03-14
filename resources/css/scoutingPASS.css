@@ -279,21 +279,20 @@ input[type="number"] {
     color: white;
 }
 
-/* When there are many choices, allow wrapping into rows */
-.radio-group.radio-group-wrap .radio-choice {
-    flex: 0 1 auto;
-    min-width: 60px;
-    padding: 8px 12px;
-    border-right: none;
-    border: 1px solid rgba(128,128,128,0.2);
-    border-radius: 8px;
-    margin: 3px;
-}
-
+/* When there are many choices, flex-wrap so every row fills full width */
 .radio-group.radio-group-wrap {
-    gap: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
     border: none;
     background: none;
+}
+
+.radio-group.radio-group-wrap .radio-choice {
+    flex: 1 1 90px;
+    border-right: none;
+    border: 2px solid rgba(128,128,128,0.25);
+    border-radius: 8px;
 }
 
 /* ── Checkbox: iOS-style toggle switch ── */
@@ -469,4 +468,68 @@ button {
 #data {
     font-family: 'Lucida Console', 'monospace';
     text-align: justify;
+}
+
+/* ── iPad / tablet responsive ── */
+@media (min-width: 600px) {
+    table {
+        padding: 0 16px;
+    }
+
+    table tr {
+        padding: 8px 16px;
+    }
+
+    td.title {
+        font-size: 16px;
+    }
+
+    .radio-choice {
+        font-size: 15px;
+        min-height: 52px;
+    }
+
+    .radio-group.radio-group-wrap .radio-choice {
+        flex-basis: 100px;
+        min-height: 52px;
+        font-size: 15px;
+    }
+
+    .toggle-track {
+        width: 64px;
+        height: 36px;
+        border-radius: 18px;
+    }
+
+    .toggle-track::after {
+        width: 30px;
+        height: 30px;
+    }
+
+    .toggle-switch input:checked + .toggle-track::after {
+        transform: translateX(28px);
+    }
+
+    .toggle-label {
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        min-height: 52px;
+        font-size: 18px;
+    }
+
+    .counter {
+        font-size: 22px;
+        min-height: 52px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
 }
