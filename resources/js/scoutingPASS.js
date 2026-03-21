@@ -8,7 +8,7 @@ document.addEventListener("touchend", moveTouch, false);
 
 // Swipe Up / Down / Left / Right
 var initialX = null;
-var xThreshold = 0.3;
+var xThreshold = 0.55;
 var slide = 0;
 var enableGoogleSheets = false;
 var pitScouting = false;
