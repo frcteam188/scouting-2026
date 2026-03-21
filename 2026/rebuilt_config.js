@@ -166,30 +166,17 @@ var config_data = `
       },
       "defaultValue": "x"
     },
-    { "name": "Balls Missed<br>(approx)",
-      "code": "tbm",
-      "type": "radio",
-      "choices": {
-        "20": "20% missed",
-        "50": "50% missed",
-        "80": "80% missed",
-        "ms": "Mostly Scored",
-        "x": "Unknown"
-      },
-      "defaultValue": "x"
-    },
     { "name": "Ball Accuracy",
       "code": "bac",
       "type": "radio",
       "choices": {
         "n": "No shots",
-        "p": "Poor",
-        "f": "Fair",
-        "g": "Good",
-        "e": "Excellent",
-        "x": "Unknown"
+        "p": "Poor(0-25%)",
+        "f": "Fair(25-50%)",
+        "g": "Good(50-75%)",
+        "e": "Excellent(75-100%)"
       },
-      "defaultValue": "x"
+      "defaultValue": "n"
     },
     { "name": "Scoring Style",
       "code": "sty",
@@ -198,7 +185,7 @@ var config_data = `
         "c": "Close-range",
         "f": "Fixed-position",
         "m": "Moving",
-        "x": "Mixed / unclear"
+        "x": "Mixed / Unclear"
       },
       "defaultValue": "x"
     },
@@ -219,18 +206,6 @@ var config_data = `
     { "name": "Crossed Trench",
       "code": "tre",
       "type": "bool"
-    },
-    { "name": "Preferred Lane",
-      "code": "lan",
-      "type": "radio",
-      "choices": {
-        "c": "Close",
-        "m": "Middle",
-        "f": "Far",
-        "fl": "Flexible",
-        "x": "Unknown"
-      },
-      "defaultValue": "x"
     },
     { "name": "Preferred Entrance",
       "code": "ent",
@@ -259,24 +234,23 @@ var config_data = `
       },
       "defaultValue": "x"
     },
-    { "name": "Setup Time",
+    { "name": "Total Hang Time",
       "code": "est",
       "type": "radio",
       "choices": {
-        "1": "< 15 sec",
-        "2": "15-25 sec",
-        "3": "> 25 sec",
+        "1": "0-10 sec",
+        "2": "10-20 sec",
+        "3": "20-30 sec",
         "x": "Unknown"
       },
       "defaultValue": "x"
     },
-    { "name": "Needs Clear Space",
+    { "name": "Hang Location",
       "code": "ecs",
       "type": "radio",
       "choices": {
-        "y": "Yes",
-        "n": "No",
-        "s": "Sometimes",
+        "c": "Center",
+        "s": "Side",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -357,8 +331,8 @@ var config_data = `
       "code": "die",
       "type": "bool"
     },
-    { "name": "Tippy<br>(almost tipped over)",
-      "code": "tip",
+    { "name": "Easily Beached<br>(Beaches Often)",
+      "code": "bea",
       "type": "bool"
     },
     { "name": "Penalty Risk",
