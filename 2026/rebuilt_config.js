@@ -62,7 +62,7 @@ var config_data = `
       "clickRestriction": "one",
       "dimensions": "7 10",
       "allowableResponses": "4 11 18 25 32 39 46 53 60 67",
-      "shape": "circle 5 black red true"
+      "shape": "circle 25 black white true"
     }
   ],
   "auton": [
