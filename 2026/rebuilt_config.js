@@ -73,10 +73,9 @@ var config_data = `
         "n": "None",
         "m": "Mobility only",
         "s": "Score attempt only",
-        "c": "Combo auto",
-        "x": "Unknown"
+        "c": "Combo auto"
       },
-      "defaultValue": "x"
+      "defaultValue": "n"
     },
     { "name": "Auto Result",
       "code": "ar",
@@ -94,54 +93,29 @@ var config_data = `
       "type": "radio",
       "choices": {
         "0": "0",
+        "10": "10",
         "20": "20",
+        "30": "30",
         "40": "40",
+        "50": "50",
         "60": "60",
+        "70": "70",
         "80": "80",
-        "100": "100",
-        "150": "150",
-        "200": "200",
-        "fh": "Full Hopper",
-        "fh+": "Full Hopper ++",
-        "x": "Unknown"
+        "90": "90"
       },
-      "defaultValue": "x"
-    },
-    { "name": "Balls Missed<br>(approx)",
-      "code": "abm",
-      "type": "radio",
-      "choices": {
-        "20": "~20% missed",
-        "50": "~50% missed",
-        "80": "~80% missed",
-        "ms": "Mostly Scored",
-        "x": "Unknown"
-      },
-      "defaultValue": "x"
+      "defaultValue": "0"
     },
     { "name": "Ball Accuracy",
       "code": "aac",
       "type": "radio",
       "choices": {
         "n": "No shots",
-        "p": "Poor",
-        "f": "Fair",
-        "g": "Good",
-        "e": "Excellent",
-        "x": "Unknown"
+        "p": "Poor(0-25%)",
+        "f": "Fair(25-50%)",
+        "g": "Good(50-75%)",
+        "e": "Excellent(75-100%)"
       },
-      "defaultValue": "x"
-    },
-    { "name": "Auto Path Conflict",
-      "code": "apc",
-      "type": "radio",
-      "choices": {
-        "n": "None",
-        "m": "Minor risk",
-        "h": "High risk",
-        "x": "Unknown"
-      },
-      "defaultValue": "x"
+      "defaultValue": "n"
     }
   ],
   "teleop": [
@@ -158,15 +132,15 @@ var config_data = `
       },
       "defaultValue": "x"
     },
-    { "name": "Scoring Threat",
+    { "name": "Scoring Threat(To Us)",
       "code": "sth",
       "type": "radio",
       "choices": {
         "0": "None",
-        "1": "Opportunistic",
-        "2": "Secondary",
-        "3": "Primary",
-        "4": "Elite"
+        "1": "Low",
+        "2": "Medium",
+        "3": "High",
+        "4": "Very High"
       },
       "defaultValue": "1"
     },
@@ -192,30 +166,17 @@ var config_data = `
       },
       "defaultValue": "x"
     },
-    { "name": "Balls Missed<br>(approx)",
-      "code": "tbm",
-      "type": "radio",
-      "choices": {
-        "20": "~20% missed",
-        "50": "~50% missed",
-        "80": "~80% missed",
-        "ms": "Mostly Scored",
-        "x": "Unknown"
-      },
-      "defaultValue": "x"
-    },
     { "name": "Ball Accuracy",
       "code": "bac",
       "type": "radio",
       "choices": {
         "n": "No shots",
-        "p": "Poor",
-        "f": "Fair",
-        "g": "Good",
-        "e": "Excellent",
-        "x": "Unknown"
+        "p": "Poor(0-25%)",
+        "f": "Fair(25-50%)",
+        "g": "Good(50-75%)",
+        "e": "Excellent(75-100%)"
       },
-      "defaultValue": "x"
+      "defaultValue": "n"
     },
     { "name": "Scoring Style",
       "code": "sty",
@@ -224,7 +185,7 @@ var config_data = `
         "c": "Close-range",
         "f": "Fixed-position",
         "m": "Moving",
-        "x": "Mixed / unclear"
+        "x": "Mixed / Unclear"
       },
       "defaultValue": "x"
     },
@@ -234,19 +195,27 @@ var config_data = `
       "choices": {
         "f": "Floor",
         "h": "Human player",
-        "m": "Mixed",
-        "x": "Unknown"
+        "m": "Mixed"
       },
-      "defaultValue": "x"
+      "defaultValue": "f"
     },
-    { "name": "Preferred Lane",
-      "code": "lan",
+    { "name": "Crossed Bump",
+      "code": "bmp",
+      "type": "bool"
+    },
+    { "name": "Crossed Trench",
+      "code": "tre",
+      "type": "bool"
+    },
+    { "name": "Preferred Entrance",
+      "code": "ent",
       "type": "radio",
       "choices": {
-        "l": "Left",
-        "c": "Center",
-        "r": "Right",
-        "f": "Flexible",
+        "ct": "Close Trench",
+        "cb": "Close Bump",
+        "fb": "Far Bump",
+        "ft": "Far Trench", 
+        "fl": "Flexible",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -265,24 +234,23 @@ var config_data = `
       },
       "defaultValue": "x"
     },
-    { "name": "Setup Time",
+    { "name": "Total Hang Time",
       "code": "est",
       "type": "radio",
       "choices": {
-        "1": "< 15 sec",
-        "2": "15-25 sec",
-        "3": "> 25 sec",
+        "1": "0-10 sec",
+        "2": "10-20 sec",
+        "3": "20-30 sec",
         "x": "Unknown"
       },
       "defaultValue": "x"
     },
-    { "name": "Needs Clear Space",
+    { "name": "Hang Location",
       "code": "ecs",
       "type": "radio",
       "choices": {
-        "y": "Yes",
-        "n": "No",
-        "s": "Sometimes",
+        "c": "Center",
+        "s": "Side",
         "x": "Unknown"
       },
       "defaultValue": "x"
@@ -335,14 +303,6 @@ var config_data = `
       },
       "defaultValue": "3"
     },
-    { "name": "Crossed Bump",
-      "code": "bmp",
-      "type": "bool"
-    },
-    { "name": "Crossed Trench",
-      "code": "tre",
-      "type": "bool"
-    },
     { "name": "Drive Reliability",
       "code": "drv",
       "type": "radio",
@@ -371,8 +331,8 @@ var config_data = `
       "code": "die",
       "type": "bool"
     },
-    { "name": "Tippy<br>(almost tipped over)",
-      "code": "tip",
+    { "name": "Easily Beached<br>(Beaches Often)",
+      "code": "bea",
       "type": "bool"
     },
     { "name": "Penalty Risk",
