@@ -63,6 +63,15 @@ var config_data = `
       "dimensions": "7 10",
       "allowableResponses": "4 11 18 25 32 39 46 53 60 67",
       "shape": "circle 25 black white true"
+    },
+    { "name": "Pick-Up Locations",
+      "code": "pul",
+      "type": "multi",
+      "choices": {
+        "c": "Center",
+        "d": "Depot",
+        "o": "Outpost",
+      }
     }
   ],
   "auton": [
