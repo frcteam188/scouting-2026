@@ -120,7 +120,7 @@ var config_data = `
     { "name": "Hang",
       "code": "han",
       "type": "bool",
-      "centerAlign": "true
+      "centerAlign": "true"
     }
   ],
   "teleop": [
