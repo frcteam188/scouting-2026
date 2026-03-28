@@ -311,13 +311,31 @@ var config_data = `
         "2": "Level 2",
         "3": "Level 3",
         "a": "Attempted",
+        "cp": "Continued playing",
         "x": "Not Attempted"
       },
-      "defaultValue": "x"
+      "defaultValue": "x",
+      "triggerVisibility": true
+    },
+    { "name": "End Game Actions",
+      "tooltip": "End game period (0:30-0:00). Both HUBs are active.",
+      "code": "ega",
+      "type": "multi",
+      "scoreWithCount": true,
+      "scoreChoiceKey": "s",
+      "scoreLabel": "Balls scored in end game:",
+      "showWhen": {"field": "tc", "values": ["cp"]},
+      "choices": {
+        "s": "Scoring",
+        "d": "Playing defense",
+        "t": "Shuttling",
+        "f": "Full-court shuttling"
+      }
     },
     { "name": "Total Hang Time",
       "code": "est",
       "type": "radio",
+      "showWhen": {"field": "tc", "values": ["1", "2", "3", "a"]},
       "choices": {
         "1": "0-10 sec",
         "2": "10-20 sec",
@@ -329,6 +347,7 @@ var config_data = `
     { "name": "Hang Location",
       "code": "ecs",
       "type": "radio",
+      "showWhen": {"field": "tc", "values": ["1", "2", "3", "a"]},
       "choices": {
         "c": "Center",
         "s": "Side",
