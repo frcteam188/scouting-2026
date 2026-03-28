@@ -202,6 +202,20 @@ var config_data = `
         "f": "Full-court shuttling"
       }
     },
+    { "name": "Climb",
+      "code": "tc",
+      "type": "radio",
+      "choices": {
+        "1": "Level 1",
+        "2": "Level 2",
+        "3": "Level 3",
+        "a": "Attempted",
+        "cp": "Continued playing",
+        "x": "Not Attempted"
+      },
+      "defaultValue": "x",
+      "triggerVisibility": true
+    },
     { "name": "End Game Shift Actions",
       "tooltip": "End game shift actions (0:30-0:00) in the same format as other shifts.",
       "code": "egs",
@@ -209,6 +223,7 @@ var config_data = `
       "scoreWithCount": true,
       "scoreChoiceKey": "s",
       "scoreLabel": "Balls scored in end game shift:",
+      "showWhen": {"field": "tc", "values": ["cp"]},
       "choices": {
         "s": "Scoring",
         "d": "Playing defense",
@@ -303,20 +318,6 @@ var config_data = `
     }
   ],
   "endgame": [
-    { "name": "Climb",
-      "code": "tc",
-      "type": "radio",
-      "choices": {
-        "1": "Level 1",
-        "2": "Level 2",
-        "3": "Level 3",
-        "a": "Attempted",
-        "cp": "Continued playing",
-        "x": "Not Attempted"
-      },
-      "defaultValue": "x",
-      "triggerVisibility": true
-    },
     { "name": "End Game Actions",
       "tooltip": "End game period (0:30-0:00). Both HUBs are active.",
       "code": "ega",
