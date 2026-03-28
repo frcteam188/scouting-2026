@@ -15,6 +15,7 @@ var pitScouting = false;
 var checkboxAs = "YN";
 var ColWidth = "200px";
 var visibilityRules = [];
+var dataFormat = "kvs";
 
 // Options
 var options = {
@@ -1210,11 +1211,22 @@ function getData(dataFormat) {
 
   UniqueFieldNames.forEach((fieldname) => {
     var thisField = Form[fieldname];
-
+    if (thisField == null) {
+      return;
+    }
+    // Radio groups resolve to RadioNodeList (no .type); value is the selected option.
+    if (typeof RadioNodeList !== "undefined" && thisField instanceof RadioNodeList) {
+      var rv = thisField.value
+        ? thisField.value.replace(/"/g, "").replace(/;/g, "-")
+        : "";
+      fd.append(fieldname, rv);
+      return;
+    }
+    var thisFieldValue;
     if (thisField.type == "checkbox") {
-      var thisFieldValue = thisField.checked ? checkedChar : uncheckedChar;
+      thisFieldValue = thisField.checked ? checkedChar : uncheckedChar;
     } else {
-      var thisFieldValue = thisField.value
+      thisFieldValue = thisField.value
         ? thisField.value.replace(/"/g, "").replace(/;/g, "-")
         : "";
     }
@@ -1264,13 +1276,16 @@ function qr_regenerate() {
     }
   }
 
-  // Get data
-  data = getData(dataFormat);
-
-  // Regenerate QR Code
-  qr.makeCode(data);
-
-  updateQRHeader();
+  // QR updates must never block paging: getData / makeCode can throw on bad state or library limits.
+  try {
+    data = getData(dataFormat);
+    if (typeof qr !== "undefined" && qr && typeof qr.makeCode === "function") {
+      qr.makeCode(data);
+    }
+    updateQRHeader();
+  } catch (e) {
+    console.error("QR regenerate failed:", e);
+  }
   return true;
 }
 
