@@ -14,6 +14,7 @@ var enableGoogleSheets = false;
 var pitScouting = false;
 var checkboxAs = "YN";
 var ColWidth = "200px";
+var visibilityRules = [];
 
 // Options
 var options = {
@@ -630,6 +631,7 @@ function addRadio(table, idx, name, data) {
     cell1.innerHTML = `Error: No code specified for ${name}`;
     return idx + 1;
   }
+  row.setAttribute("id", "row_" + data.code);
   var cell2 = row.insertCell(1);
   cell2.style.width = ColWidth;
   cell1.innerHTML = name + "&nbsp;";
@@ -673,6 +675,9 @@ function addRadio(table, idx, name, data) {
       if (data.type == "robot") {
         label.setAttribute("data-alliance", c.startsWith("r") ? "red" : "blue");
       }
+      if (data.hasOwnProperty("triggerVisibility") && data.triggerVisibility === true) {
+        inp.setAttribute("onchange", "updateVisibility()");
+      }
       label.appendChild(inp);
       var span = document.createElement("span");
       span.innerHTML = data.choices[c].replace(/<br\s*\/?>/gi, "");
@@ -693,6 +698,15 @@ function addRadio(table, idx, name, data) {
     def.setAttribute("type", "hidden");
     def.setAttribute("value", data.defaultValue);
     cell2.appendChild(def);
+  }
+
+  if (data.hasOwnProperty("showWhen")) {
+    row.style.display = "none";
+    visibilityRules.push({
+      rowCode: data.code,
+      field: data.showWhen.field,
+      values: data.showWhen.values,
+    });
   }
 
   return idx + 1;
@@ -764,6 +778,22 @@ function setMultiSelectScore(baseCode, scoreCount) {
   updateMultiSelectScore(baseCode);
 }
 
+function updateVisibility() {
+  visibilityRules.forEach(function (rule) {
+    var row = document.getElementById("row_" + rule.rowCode);
+    if (!row) return;
+    // Validate field name to prevent selector injection
+    if (!/^[A-Za-z0-9_-]+$/.test(rule.field)) return;
+    var currentValue = null;
+    document.querySelectorAll('input[name="' + rule.field + '"]').forEach(function (inp) {
+      if (inp.type === "radio" && inp.checked) {
+        currentValue = inp.value;
+      }
+    });
+    row.style.display = rule.values.includes(currentValue) ? "" : "none";
+  });
+}
+
 function addMultiSelect(table, idx, name, data) {
   var row = table.insertRow(idx);
   var cell1 = row.insertCell(0);
@@ -773,6 +803,7 @@ function addMultiSelect(table, idx, name, data) {
     cell1.innerHTML = `Error: No code specified for ${name}`;
     return idx + 1;
   }
+  row.setAttribute("id", "row_" + data.code);
   var cell2 = row.insertCell(1);
   cell2.style.width = ColWidth;
   cell1.innerHTML = name + "&nbsp;";
@@ -874,6 +905,15 @@ function addMultiSelect(table, idx, name, data) {
     def.setAttribute("type", "hidden");
     def.setAttribute("value", data.defaultValue);
     cell2.appendChild(def);
+  }
+
+  if (data.hasOwnProperty("showWhen")) {
+    row.style.display = "none";
+    visibilityRules.push({
+      rowCode: data.code,
+      field: data.showWhen.field,
+      values: data.showWhen.values,
+    });
   }
 
   return idx + 1;
@@ -1091,6 +1131,8 @@ function configure() {
   if (!enableGoogleSheets) {
     document.getElementById("submit").style.display = "none";
   }
+
+  updateVisibility();
 
   return 0;
 }
