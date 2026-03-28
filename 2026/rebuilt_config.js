@@ -273,15 +273,10 @@ var config_data = `
       },
       "defaultValue": "x"
     },
-    { "name": "Pickup Source",
+    { "name": "Can Pick From Human Load/ <br> Outpost",
       "code": "src",
-      "type": "radio",
-      "choices": {
-        "f": "Floor",
-        "h": "Human player",
-        "m": "Mixed"
-      },
-      "defaultValue": "f"
+      "type": "bool",
+      "centerAlign": true
     },
     { "name": "Crossed Bump",
       "code": "bmp",
@@ -308,20 +303,6 @@ var config_data = `
     }
   ],
   "endgame": [
-    { "name": "End Game Actions",
-      "tooltip": "End game period (0:30-0:00). Both HUBs are active.",
-      "code": "ega",
-      "type": "multi",
-      "scoreWithCount": true,
-      "scoreChoiceKey": "s",
-      "scoreLabel": "Balls scored in end game:",
-      "choices": {
-        "s": "Scoring",
-        "d": "Playing defense",
-        "t": "Shuttling",
-        "f": "Full-court shuttling"
-      }
-    },
     { "name": "Climb",
       "code": "tc",
       "type": "radio",
