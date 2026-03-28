@@ -196,7 +196,7 @@ For backend processing, convert that payload into JSON using the field codes bel
 ```json
 {
   "s": "AB",
-  "e": "2026onosh",
+  "e": "2026onbar",
   "l": "qm",
   "m": "12",
   "r": "r2",
