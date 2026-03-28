@@ -319,13 +319,13 @@ var config_data = `
   ],
   "endgame": [
     { "name": "End Game Actions",
-      "tooltip": "End game period (0:30-0:00). Both HUBs are active.",
+      "tooltip": "End game period (0:30-0:00). Both HUBs are active. Shown when the robot did not climb (Not Attempted) or Continued playing; use Hang fields when a climb was scored or attempted.",
       "code": "ega",
       "type": "multi",
       "scoreWithCount": true,
       "scoreChoiceKey": "s",
       "scoreLabel": "Balls scored in end game:",
-      "showWhen": {"field": "tc", "values": ["cp"]},
+      "showWhen": {"field": "tc", "values": ["cp", "x"]},
       "choices": {
         "s": "Scoring",
         "d": "Playing defense",
