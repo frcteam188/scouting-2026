@@ -116,6 +116,11 @@ var config_data = `
         "e": "Excellent(75-100%)"
       },
       "defaultValue": "n"
+    },
+    { "name": "Hang",
+      "code": "han",
+      "type": "bool",
+      "centerAlign": "true
     }
   ],
   "teleop": [
